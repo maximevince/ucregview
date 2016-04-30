@@ -30,8 +30,8 @@ $2 = {SR = 0xc0, DR = 0x0, BRR = 0x2d9, CR1 = 0x202c, CR2 = 0x0, CR3 = 0x0, GTPR
 ## How to use?
 
 1. Fire up GDB, connect to remote target as usual
-2. In addition to your application's .ELF file, load the ucregview\_xxx.elf, too: 
-  * ``` (gdb) file ucregview_xxx.elf ```
+2. In addition to your application's .ELF file, load the ucregview\_xxx.elf symbols, too: 
+  * ``` (gdb) add-symbol-file ucregview_xxx.elf 0x0```
 3. Read any memory-mapped peripheral register
   * ``` (gdb) p/x USART1->CR1 ```
 4. Write to peripheral registers from GDB
