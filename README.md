@@ -15,7 +15,10 @@ So I decided to fix this in a really simple way:
 You load an extra .elf file containing the symbols for all the registers.
 This will effectively give you access to your microcontroller's peripheral registers, e.g. like this:
 ```
-(gdb) p/x USART1->CR1
+(gdb) p/x USART6->SR
+$1 = 0xc0
+(gdb) p/x USART6
+$2 = {SR = 0xc0, DR = 0x0, BRR = 0x2d9, CR1 = 0x202c, CR2 = 0x0, CR3 = 0x0, GTPR = 0x0}
 ```
 
 ## How to build?
@@ -29,13 +32,18 @@ This will effectively give you access to your microcontroller's peripheral regis
 1. Fire up GDB, connect to remote target as usual
 2. In addition to your application's .ELF file, load the ucregview\_xxx.elf, too: 
   * ``` (gdb) file ucregview_xxx.elf ```
-3. Access any memory-mapped peripheral register! 
+3. Read any memory-mapped peripheral register
   * ``` (gdb) p/x USART1->CR1 ```
+4. Write to peripheral registers from GDB
+  * ``` (gdb) set USART6->CR1 = 0xE8 ```
+  * ``` (gdb) p/x USART6->CR1```
+  * ``` $3 = 0xe8 ```
 
 
 ## Supported targets
 
-For now, only one microcontroller is supported, feel free to add more and file a pull request!
+For now, only a few microcontrollers are supported, feel free to add more and file a pull request!
 
 * STM32L051xx
+* STM32F407xx
 

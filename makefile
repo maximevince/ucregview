@@ -19,7 +19,7 @@
 #   
 
 # Basic Settings
-TARGET ?= stm32l051xx
+TARGET ?= stm32f407xx
 VERBOSE ?= 0
 PREFIX ?= build
 

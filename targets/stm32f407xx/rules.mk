@@ -21,10 +21,10 @@
 # Toolchain settings
 CROSS_COMPILE ?= arm-none-eabi-
 
-SRC_PATH = st/stm32l051xx
-CFLAGS 	+= -mcpu=cortex-m0plus -mthumb -DSTM32L051xx
+SRC_PATH = st/stm32f407xx
+CFLAGS 	+= -mcpu=cortex-m4 -mthumb -DSTM32LF407xx
 CFLAGS 	+= -I$(SRC_PATH) -Iarm
-LDFLAGS	+= -T$(SRC_PATH)/stm32l051xx.ld
+LDFLAGS	+= -T$(SRC_PATH)/stm32f407xx.ld
 
 # All of the sources participating in the build are defined here
-C_SRCS += $(SRC_PATH)/stm32l051xx.c
+C_SRCS += $(SRC_PATH)/stm32f407xx.c
