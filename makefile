@@ -38,7 +38,7 @@ OBJS += $(addprefix $(PREFIX)/,$(C_SRCS:.c=.o))
 DEPS := $(OBJS:.o=.d)
 
 # Compile flags
-CFLAGS += -ggdb -O0
+CFLAGS += -ggdb3 -O0
 LDFLAGS += -nostartfiles -ffreestanding
 
 # Debug settings
